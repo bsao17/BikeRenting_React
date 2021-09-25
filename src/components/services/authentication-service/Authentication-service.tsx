@@ -1,11 +1,26 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-function AuthenticationService(props: any) {
-    return (
-        <div>
+interface myProps {
+    [props: string]: any
+}
 
-        </div>
-    );
+interface myState {
+    [state: string]: any
+}
+
+class AuthenticationService extends Component <myProps, myState> {
+    public constructor(props: myProps){
+        super(props);
+
+    }
+
+    render() {
+        return (
+            <div>
+
+            </div>
+        );
+    }
 }
 
 export default AuthenticationService;
