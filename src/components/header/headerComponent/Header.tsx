@@ -5,12 +5,18 @@ import axios from "axios";
 
 
 const Header: React.FC = (props) => {
-    const[articleContentOne, setArticleContentOne] = useState("")
-    const[articleContentTwo, setArticleContentTwo] = useState("")
-    const[articleContentThree, setArticleContentThree] = useState("")
+    const[articleContentOne, setArticleContentOne] = useState<string>("")
+    const[articleContentTwo, setArticleContentTwo] = useState<string>("")
+    const[articleContentThree, setArticleContentThree] = useState<string>("")
+
+    interface Articles {
+        id: number
+        content: string
+        title: string
+    }
 
     async function requestDb(I: number){
-        await axios.get("http://localhost:3000/articles")
+        await axios.get<Articles[]>("http://localhost:3000/articles")
             .then(
                 (r)=> {
                     setArticleContentOne(r.data[0].content);
