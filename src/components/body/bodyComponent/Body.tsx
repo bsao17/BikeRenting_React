@@ -1,6 +1,5 @@
 import React from 'react';
 import styleBody from "./body.module.css"
-import AuthenticationService from "../../services/authentication-service/Authentication-service";
 
 function Body(props: any) {
     return (

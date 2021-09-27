@@ -2,17 +2,21 @@
   "articles": [
     {
       "id": 1,
-      "title": "Construire une API en GO",
+      "title": "Première étape",
+      "content": "Choisissez la station ou vous souhaitez réserver un vélo, afin de vérifier s'il en reste de disponible",
       "authorId": 2
     },
     {
       "id": 2,
-      "title": "Créer une API avec API Platform",
-      "authorId": 1
-    },{
+      "title": "Deuxième étape",
+      "content": "Un fois votre station choisie, vous devrez entrer les informations demandées afin de d'effectuer une réservation. Une fois fait, cliquez sur le bouton réserver.",
+      "authorId": 2
+    },
+    {
       "id": 3,
-      "title": "Créer une API avec NodeJS",
-      "authorId": 3
+      "title": "Dernière étape",
+      "content": "Une fois la validation faite, vous n'avez plus qu'à vérifier les information, puis effectuer la signature dans l'encart réservé à cet effet puis cliquer sur le bouton réserver. Une fois cliqué, votre réservation reste effective 20 minutes afin que vous puissiez le récupérer à la station. Bonne route !",
+      "authorId": 2
     }
   ],
   "comments": [
