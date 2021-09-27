@@ -1,23 +1,28 @@
 import React, {Component} from 'react';
 
 interface myProps {
-    [props: string]: any
+    props: string | number
 }
 
 interface myState {
-    [state: string]: any
+    username: string
 }
 
 class AuthenticationService extends Component <myProps, myState> {
     public constructor(props: myProps){
         super(props);
-
+        props = this.props
+        this.state = {
+            username: "",
+        }
     }
+
+
+
 
     render() {
         return (
             <div>
-
             </div>
         );
     }

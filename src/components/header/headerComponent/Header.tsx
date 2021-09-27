@@ -51,7 +51,8 @@ function Header({title, content}: props) {
                         </div>
                         <button onClick={() => {
                             setArticleThree(!articleThree)
-                        }} className={"btn btn-sm btn-success"}>Open
+                        }} className={"btn btn-sm btn-success"}>
+                            Open
                         </button>
                     </div>
                 </div>
