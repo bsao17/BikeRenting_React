@@ -6,13 +6,15 @@ import axios from "axios";
 
 const Header: React.FC = (props) => {
     const [articleContent, setArticleContent] = useState<string>("")
+    const [toggleWindow, setToggleWindow] = useState<Boolean>(false)
+    const [toggleWindowTwo, setToggleWindowTwo] = useState<Boolean>(false)
+    const [toggleWindowThree, setToggleWindowThree] = useState<Boolean>(false)
 
     interface Articles {
         id: number
         content: string
         title: string
     }
-
 
     async function requestDb(I: number) {
         await axios.get<Articles[]>("http://localhost:3000/articles")
@@ -21,11 +23,6 @@ const Header: React.FC = (props) => {
                     setArticleContent(r.data[I].content)
                 })
     }
-
-
-    const [toggleWindow, setToggleWindow] = useState<Boolean>(false)
-    const [toggleWindowTwo, setToggleWindowTwo] = useState<Boolean>(false)
-    const [toggleWindowThree, setToggleWindowThree] = useState<Boolean>(false)
 
     return (
         <div className={"card card-body m-4 bg-dark"} id={styleHeader.containerGlobal}>
