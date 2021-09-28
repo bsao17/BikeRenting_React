@@ -15,7 +15,7 @@
     {
       "id": 3,
       "title": "Dernière étape",
-      "content": "Une fois la validation faite, vous n'avez plus qu'à vérifier les information, puis effectuer la signature dans l'encart réservé à cet effet puis cliquer sur le bouton réserver. Une fois cliqué, votre réservation reste effective 20 minutes afin que vous puissiez le récupérer à la station. Bonne route !",
+      "content": "Une fois la validation faite, vous n'avez plus qu'à vérifier les information, puis effectuer la signature dans l'encart réservé à cet effet puis cliquer sur le bouton valider. Une fois validée, votre réservation reste effective 20 minutes afin que vous puissiez le récupérer à la station. Bonne route !",
       "authorId": 2
     }
   ],

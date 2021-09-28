@@ -5,9 +5,7 @@ import axios from "axios";
 
 
 const Header: React.FC = (props) => {
-    const[articleContentOne, setArticleContentOne] = useState<string>("")
-    const[articleContentTwo, setArticleContentTwo] = useState<string>("")
-    const[articleContentThree, setArticleContentThree] = useState<string>("")
+    const [articleContent, setArticleContent] = useState<string>("")
 
     interface Articles {
         id: number
@@ -15,60 +13,42 @@ const Header: React.FC = (props) => {
         title: string
     }
 
-    async function requestDb(I: number){
+
+    async function requestDb(I: number) {
         await axios.get<Articles[]>("http://localhost:3000/articles")
             .then(
-                (r)=> {
-                    setArticleContentOne(r.data[0].content);
-                }
-            ).catch(err => console.log(err))
+                (r) => {
+                    setArticleContent(r.data[I].content)
+                })
     }
 
-    async function requestDbTwo(I: number){
-        await axios.get("http://localhost:3000/articles")
-            .then(
-                (r)=> {
-                    setArticleContentTwo(r.data[1].content);
-                }
-            ).catch(err => console.log(err))
-    }
 
-    async function requestDbThree(I: number){
-        await axios.get("http://localhost:3000/articles")
-            .then(
-                (r)=> {
-                    setArticleContentThree(r.data[2].content);
-                }
-            ).catch(err => console.log(err))
-    }
-
-    const [article, setArticle] = useState(false)
-    const [articleTwo, setArticleTwo] = useState(false)
-    const [articleThree, setArticleThree] = useState(false)
-    useEffect(()=>{
-        requestDb(0);
-        requestDbTwo(1);
-        requestDbThree(2);
-    }, [] )
-
-    console.log(articleContentOne)
+    const [toggleWindow, setToggleWindow] = useState<Boolean>(false)
+    const [toggleWindowTwo, setToggleWindowTwo] = useState<Boolean>(false)
+    const [toggleWindowThree, setToggleWindowThree] = useState<Boolean>(false)
 
     return (
         <div className={"card card-body m-4 bg-dark"} id={styleHeader.containerGlobal}>
             <Carousel/>
+            <h1 className={"text-light text-center mt-5"}>Louer un vélo en 3 étapes</h1>
             <div className={" container row mt-5 m-auto"}>
                 <div className={"col-lg-4 col-md-6 col-sm-12"}>
                     <div className="card card-body my-2">
                         <div className="card-header text-center text-dark fw-bold">
-                            {"I"}
+                            Etape <span className="h4 fw-bold bg-success rounded-pill p-1 text-light">1</span>
                         </div>
                         <div className="card-text m-2">
-                            {article && articleContentOne}
+                            {toggleWindow && articleContent}
                         </div>
+
+                        {/*Button One open windows under the carousel*/}
                         <button onClick={() => {
-                            setArticle(!article)
-                        }} className={article ? "btn btn-sm btn-danger" : "btn btn-sm btn-success"}>
-                            {article ? "Fermer" : "Ouvrir"}
+                            requestDb(0)
+                            setToggleWindow(!toggleWindow);
+                            setToggleWindowTwo(false)
+                            setToggleWindowThree(false)
+                        }} className={toggleWindow ? "btn btn-sm btn-danger" : "btn btn-sm btn-success"}>
+                            {toggleWindow ? "Fermer" : "Ouvrir"}
                         </button>
                     </div>
                 </div>
@@ -76,15 +56,20 @@ const Header: React.FC = (props) => {
                 <div className={"col-lg-4 col-md-6 col-sm"}>
                     <div className="card card-body my-2">
                         <div className="card-header text-center text-dark fw-bold">
-                            II
+                            Etape <span className={"h4 fw-bold bg-warning rounded-pill p-1 text-light"}>2</span>
                         </div>
                         <div className="card-text m-2">
-                            {articleTwo && articleContentTwo}
+                            {toggleWindowTwo && articleContent}
                         </div>
+
+                        {/*Button Two open windows under the carousel*/}
                         <button onClick={() => {
-                            setArticleTwo(!articleTwo)
-                        }} className={articleTwo ? "btn btn-sm btn-danger" : "btn btn-sm btn-success"}>
-                            {articleTwo ? "Fermer" : "Ouvrir"}
+                            requestDb(1)
+                            setToggleWindowTwo(!toggleWindowTwo)
+                            setToggleWindow(false)
+                            setToggleWindowThree(false)
+                        }} className={toggleWindowTwo ? "btn btn-sm btn-danger" : "btn btn-sm btn-success"}>
+                            {toggleWindowTwo ? "Fermer" : "Ouvrir"}
                         </button>
                     </div>
                 </div>
@@ -92,15 +77,20 @@ const Header: React.FC = (props) => {
                 <div className={"col-lg-4 col-md-6 col-sm"}>
                     <div className="card card-body my-2">
                         <div className="card-header text-center text-dark fw-bold">
-                            III
+                            Etape <span className={"h4 fw-bold bg-danger rounded-pill p-1 text-light"}>3</span>
                         </div>
                         <div className="card-text m-2">
-                            {articleThree && articleContentThree}
+                            {toggleWindowThree && articleContent}
                         </div>
+
+                        {/*Button Three open windows under the carousel*/}
                         <button onClick={() => {
-                            setArticleThree(!articleThree)
-                        }} className={articleThree ? "btn btn-sm btn-danger" : "btn btn-sm btn-success"}>
-                            {articleThree ? "Fermer" : "Ouvrir"}
+                            requestDb(2)
+                            setToggleWindowThree(!toggleWindowThree)
+                            setToggleWindow(false)
+                            setToggleWindowTwo(false)
+                        }} className={toggleWindowThree ? "btn btn-sm btn-danger" : "btn btn-sm btn-success"}>
+                            {toggleWindowThree ? "Fermer" : "Ouvrir"}
                         </button>
                     </div>
                 </div>

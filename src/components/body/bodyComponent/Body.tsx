@@ -1,7 +1,7 @@
 import React from 'react';
 import styleBody from "./body.module.css"
 
-function Body(props: any) {
+const Body: React.FC = () => {
     return (
         <div className={styleBody.container}>
             <section className={"row w-100 m-auto"}>
