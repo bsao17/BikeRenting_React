@@ -21,12 +21,18 @@ const Header: React.FC = (props) => {
 
     useEffect(()=> {
         requestDb()
-    }, [])
+    }, [toggleWindow])
 
     return (
         <div className={"card card-body m-4 bg-dark"} id={styleHeader.containerGlobal}>
             <Carousel/>
             <h1 className={"text-light text-center mt-5"}>Louer un vélo en 3 étapes</h1>
+            <button
+                onClick={()=>setToggleWindow(!toggleWindow)}
+                className={toggleWindow ? "btn w-50 m-auto btn-danger" : "btn w-50 m-auto btn-success"}
+            >
+                {toggleWindow ? "Fermer" : "Ouvrir"}
+            </button>
             <div className={" container row mt-5 m-auto"}>
 
                     {articleContent.map((window: Article) => {
@@ -42,11 +48,11 @@ const Header: React.FC = (props) => {
                                     </div>
 
                                     {/*Button One open windows under the carousel*/}
-                                    <button onClick={() => {
-                                        setToggleWindow(!toggleWindow);
-                                    }} className={toggleWindow ? "btn btn-sm btn-danger" : "btn btn-sm btn-success"}>
-                                        {toggleWindow ? "Fermer" : "Ouvrir"}
-                                    </button>
+                                    {/*<button onClick={() => {*/}
+                                    {/*    setToggleWindow(!toggleWindow);*/}
+                                    {/*}} >*/}
+                                    {/*    */}
+                                    {/*</button>*/}
                                 </div>
                             </div>
                         )
