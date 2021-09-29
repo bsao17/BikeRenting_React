@@ -34,7 +34,6 @@ const Header: React.FC = (props) => {
                 {toggleWindow ? "Fermer" : "Ouvrir"}
             </button>
             <div className={" container row mt-5 m-auto"}>
-
                     {articleContent.map((window: Article) => {
                         console.log(window)
                         let windowElement: ReactElement = (
@@ -46,25 +45,11 @@ const Header: React.FC = (props) => {
                                     <div className="card-text m-2">
                                         {toggleWindow && window.content}
                                     </div>
-
-                                    {/*Button One open windows under the carousel*/}
-                                    {/*<button onClick={() => {*/}
-                                    {/*    setToggleWindow(!toggleWindow);*/}
-                                    {/*}} >*/}
-                                    {/*    */}
-                                    {/*</button>*/}
                                 </div>
                             </div>
                         )
                         return windowElement
                     })}
-
-
-
-
-
-
-
             </div>
         </div>
     );
