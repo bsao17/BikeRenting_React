@@ -1,5 +1,6 @@
 import React from 'react';
 import styleBody from "./body.module.css"
+import Map from "../map/Map";
 
 const Body: React.FC = () => {
     return (
@@ -7,6 +8,7 @@ const Body: React.FC = () => {
             <section className={"row w-100 m-auto"}>
                 <div className="card card-body col-lg-4 col-md-4 col-sm m-2">
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, vero?</p>
+                    <Map/>
                 </div>
                 <div className="card card-body col-lg-4 col-md-4 col-sm m-2">
                     <p className={"m-2"}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, vero?</p>
