@@ -7,7 +7,7 @@ const Body: React.FC = () => {
         <div className={styleBody.container}>
             <section className={"row w-100 m-auto"}>
                 <div className="card card-body col-lg-4 col-md-4 col-sm m-2">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia, vero?</p>
+                    <p className={"text-center h4 "}>Séléctionnez votre station sur la carte</p>
                     <Map/>
                 </div>
                 <div className="card card-body col-lg-4 col-md-4 col-sm m-2">

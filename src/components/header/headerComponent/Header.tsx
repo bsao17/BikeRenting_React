@@ -8,7 +8,7 @@ interface Article {
     title: string
     content: string
 }
-
+console.log(process.env.URL)
 const Header: React.FC = (props) => {
     const [articleContent, setArticleContent] = useState([])
     const [toggleWindow, setToggleWindow] = useState<Boolean>(false)
