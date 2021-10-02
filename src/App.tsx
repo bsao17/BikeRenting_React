@@ -10,8 +10,8 @@ function App() {
     console.log(bg)
     return (
         <div className={bg ? "bg-dark" : ""}>
-            <button className={bg ? "btn btn-light my-2 mx-4 rounded-circle" : "btn btn-dark my-2 mx-4 rounded-circle"} onClick={()=>setBg(!bg)}>
-                { bg ? "Light" : "Dark"}
+            <button className={bg ? "btn btn-light my-2 mx-4 rounded-circle " : "btn btn-dark my-2 mx-4 rounded-circle"} onClick={()=>setBg(!bg)}>
+                { bg ? "🌞" : "🌜"}
             </button>
             <Header/>
             <Body/>

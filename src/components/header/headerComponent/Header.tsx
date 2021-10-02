@@ -27,7 +27,7 @@ const Header: FunctionComponent = (props) => {
     }, [toggleWindow])
 
     return (
-        <div className={"card card-body m-4 bg-dark"} >
+        <div className={"card card-body m-4 bg-dark"} id={styleHeader.container} >
             <img className={styleHeader.logo} src={"images/logo.png"} alt="Logo JCDecaux"/>
             <Carousel/>
             <h1 className={"text-light text-center mt-5"} id={styleHeader.fontText}>Louer un vélo en 3 étapes</h1>
