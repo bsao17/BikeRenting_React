@@ -1,19 +1,22 @@
-import React, {ReactElement, useEffect, useState} from 'react';
+import React, {FunctionComponent, ReactElement, useEffect, useState} from 'react';
 import Carousel from "../carousel/Carousel";
 import styleHeader from "./header.module.css";
 import axios from "axios";
+import {useRecoilState} from "recoil";
+import {backgroundState} from "../../../atoms/background";
 
 interface Article {
     id: string
     title: string
     content: string
 }
-console.log(process.env.URL)
-const Header: React.FC = (props) => {
+
+const Header: FunctionComponent = (props) => {
     const [articleContent, setArticleContent] = useState([])
     const [toggleWindow, setToggleWindow] = useState<Boolean>(false)
+    const[bg] = useRecoilState(backgroundState)
 
-    /*HTTP Request on db.json API*/
+    /*HTTP Request on API*/
     async function requestDb() {
         await axios.get("https://bikerentingapi.herokuapp.com/etape")
             .then((r) => {setArticleContent(r.data); console.log(r.data)})
@@ -25,9 +28,9 @@ const Header: React.FC = (props) => {
 
     return (
         <div className={"card card-body m-4 bg-dark"} >
-            <img className={"w-25 d-block m-auto"} src={"images/logo.png"} alt="Logo JCDecaux"/>
+            <img className={styleHeader.logo} src={"images/logo.png"} alt="Logo JCDecaux"/>
             <Carousel/>
-            <h1 className={"text-light text-center mt-5"}>Louer un vélo en 3 étapes</h1>
+            <h1 className={"text-light text-center mt-5"} id={styleHeader.fontText}>Louer un vélo en 3 étapes</h1>
             <button
                 onClick={()=>setToggleWindow(!toggleWindow)}
                 className={toggleWindow ? "btn w-25 m-auto mt-4 btn-danger rounded-pill" : "btn w-25 m-auto mt-4 btn-success"}
@@ -38,11 +41,11 @@ const Header: React.FC = (props) => {
                     {articleContent.map((window: Article) => {
                         let windowElement: ReactElement = (
                             <div key ={window.id} className={"col-lg-4 col-md-6 col-sm-12"}>
-                                <div className="card card-body">
-                                    <div className="card-header text-center text-dark fw-bold">
+                                <div className={bg ? "card card-body my-2 bg-secondary" : "card card-body my-2"}>
+                                    <div className={ bg ? "card-header text-center text-dark fw-bold bg-light" : "card-header text-center text-dark fw-bold"}>
                                         <span id={styleHeader.containerTitle} className="h4 fw-bold ">{window.title}</span>
                                     </div>
-                                    <div className="card-text m-2">
+                                    <div className={ bg ? "card-text m-2 text-light" : "card-text m-2"}>
                                         {toggleWindow && window.content}
                                     </div>
                                 </div>
