@@ -1,0 +1,32 @@
+@media (prefers-reduced-motion: no-preference) {
+}
+body{
+  background: rgba(255, 248, 220, 0.65);
+}
+
+.light{
+  width: 5vw;
+  height: 10vh;
+  border: none;
+  border-radius: 50%;
+  position: fixed;
+  font-size: 1.5vw;
+  background-color: #FFFAE8;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+}
+.dark{
+  width: 5vw;
+  height: 10vh;
+  border: none;
+  font-size: 1.5vw;
+  border-radius: 50%;
+  background-color: #383838;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 100;
+}
+
+
