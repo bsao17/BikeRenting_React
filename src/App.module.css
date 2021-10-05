@@ -5,28 +5,38 @@ body{
 }
 
 .light{
-  width: 5vw;
-  height: 10vh;
+  width: 50px;
+  height: 50px;
   border: none;
   border-radius: 50%;
   position: fixed;
-  font-size: 1.5vw;
+  font-size: 1.5rem;
   background-color: #FFFAE8;
-  top: 1rem;
-  right: 1rem;
+  top: 0.5rem;
+  left: 0.5rem;
   z-index: 100;
 }
 .dark{
-  width: 5vw;
-  height: 10vh;
+  width: 50px;
+  height: 50px;
   border: none;
-  font-size: 1.5vw;
+  font-size: 1.5rem;
   border-radius: 50%;
   background-color: #383838;
   position: fixed;
-  top: 1rem;
-  right: 1rem;
+  top: 0.5rem;
+  left: 0.5rem;
   z-index: 100;
+}
+.dark:hover{
+  box-shadow: #383838 0 0 0 5px;
+  border: cornsilk inset 2px;
+  transition: 200ms;
+}
+.light:hover{
+  box-shadow: cornsilk 0 0 0 5px;
+  border: #383838 inset 2px;
+  transition: 200ms;
 }
 
 
