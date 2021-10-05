@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import GoogleMapReact, {Coords} from 'google-map-react';
+import styleMap from "./map.module.css"
 
 const AnyReactComponent: Function = ({ text }: {text: Coords}) => <div>{text}</div>;
 
@@ -15,10 +16,9 @@ export default function Map(){
     };
 
     return (
-        // Important! Always set the container height explicitly
-        <div style={{ height: '100vh', width: '100%', boxShadow: "black 5px 5px 10px" }}>
+        <div className={styleMap.map}>
             <GoogleMapReact
-                bootstrapURLKeys={{ key: "AIzaSyCArclYf3mWJW9FH-IsP8XMdFn-Ha3SleM" }}
+                bootstrapURLKeys={{ key: `${process.env.REACT_APP_API_KEY}` }}
                 defaultCenter={defaultProps.center}
                 defaultZoom={defaultProps.zoom}
             >

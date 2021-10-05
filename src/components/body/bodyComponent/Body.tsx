@@ -18,7 +18,7 @@ const Body: FunctionComponent = () => {
                 <div
                     className={bg ? "card card-body col-lg-4 col-md-4 col-sm m-2 bg-secondary" : "card card-body col-lg-4 col-md-4 col-sm m-2 bg-light"}>
                     <section className={"m-2"}>
-                        <h3 className={bg ? "text-center text-light h2 " : "text-center h2"} id={styleBody.fontText}>Informations et réservation</h3>
+                        <p className={bg ? "text-center text-light h2 " : "text-center h2"} id={styleBody.fontText}>Informations et réservation</p>
                         <form className={"form-control"} id={styleBody.form}>
                             <div className={"d-flex flex-column"}>
                                 <label htmlFor="station">Station</label>

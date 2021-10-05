@@ -18,7 +18,7 @@ const Header: FunctionComponent = (props) => {
 
     /*HTTP Request on API*/
     async function requestDb() {
-        await axios.get("https://bikerentingapi.herokuapp.com/etape")
+        await axios.get(`${process.env.REACT_APP_URL}`)
             .then((r) => {setArticleContent(r.data); console.log(r.data)})
     }
 
