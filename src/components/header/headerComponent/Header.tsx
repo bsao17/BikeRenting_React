@@ -41,6 +41,8 @@ const Header: FunctionComponent = (props) => {
                 {toggleWindow ? "Fermer les étapes" : "Lire les étapes"}
             </button>
             <div className={" container row mt-5 m-auto"}>
+
+                {/*Mapping "article Content" for create three window elements*/}
                     {articleContent.map((window: Article) => {
                         let windowElement: ReactElement = (
                             <div key ={window.id} className={"col-lg-4 col-md-6 col-sm-12"}>
@@ -56,6 +58,7 @@ const Header: FunctionComponent = (props) => {
                         )
                         return windowElement
                     })}
+
             </div>
         </div>
     );

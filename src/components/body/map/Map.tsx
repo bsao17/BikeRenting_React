@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
-import {GoogleMap, LoadScript, Marker, MarkerProps} from '@react-google-maps/api';
+import React, {useEffect, useState} from 'react'
+import {GoogleMap, LoadScript, Marker} from '@react-google-maps/api';
+import {JcdecauxRequest} from "../../../http/Jcdecaux.request";
 import styleMap from "./map.module.css"
-import axios from "axios";
 
 const containerStyle = {
     width: '45vw',
@@ -31,9 +31,7 @@ interface locationMarker {
 
 function Map() {
     const[centerMarker, setCenterMarker] = useState(centerMarkerOne)
-
-
-
+    useEffect(JcdecauxRequest, [])
     return (
         <LoadScript
             googleMapsApiKey= {`${process.env.REACT_APP_API_KEY}`}
@@ -47,7 +45,7 @@ function Map() {
                     { /* Child components, such as markers, info windows, etc. */ }
                     {
                         centerMarker.map((C)=> {
-                            return (<Marker position={C} icon={"https://www.icone-png.com/png/39/38981.png"}/>)
+                            return (<Marker key={C.lat} position={C} icon={"https://www.icone-png.com/png/39/38981.png"}/>)
                         })
                     }
                     <></>
