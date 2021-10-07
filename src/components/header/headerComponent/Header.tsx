@@ -19,11 +19,14 @@ const Header: FunctionComponent = (props) => {
     /*HTTP Request on API*/
     async function requestDb() {
         await axios.get(`${process.env.REACT_APP_URL}`)
-            .then((r) => {setArticleContent(r.data); console.log(r.data)})
+            .then((r) => {
+                setArticleContent(r.data);
+                console.log(r.data)
+            })
     }
 
     useEffect(()=> {
-        requestDb().then((r)=>console.log(r))
+        requestDb()
     }, [toggleWindow])
 
     return (
