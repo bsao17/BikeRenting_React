@@ -30,13 +30,13 @@ const Header: FunctionComponent = (props) => {
     }, [toggleWindow])
 
     return (
-        <div className={"card card-body mx-2 bg-dark border-0"} id={styleHeader.container} >
+        <div className={bg ? styleHeader.containerDark : styleHeader.containerLight} id={styleHeader.container} >
             <img className={styleHeader.logo} src={"images/logo.png"} alt="Logo JCDecaux"/>
             <Carousel/>
             <h1 className={"text-light text-center mt-5"} id={styleHeader.fontText}>Louer un vélo en 3 étapes</h1>
             <button
                 onClick={()=>setToggleWindow(!toggleWindow)}
-                className={toggleWindow ? "btn w-25 m-auto mt-4 btn-danger rounded-pill" : "btn w-25 m-auto mt-4 btn-success"}
+                className={toggleWindow ? styleHeader.closeButton : styleHeader.openButton}
             >
                 {toggleWindow ? "Fermer les étapes" : "Lire les étapes"}
             </button>
@@ -47,7 +47,7 @@ const Header: FunctionComponent = (props) => {
                         let windowElement: ReactElement = (
                             <div key ={window.id} className={"col-lg-4 col-md-6 col-sm-12"}>
                                 <div className={bg ? "card card-body my-2 bg-secondary" : "card card-body my-2"}>
-                                    <div className={ bg ? "card-header bg-light text-center text-dark fw-bold " : "card-header bg-primary text-light text-center fw-bold"}>
+                                    <div className={ bg ? "card-header bg-dark text-center text-light fw-bold " : "card-header bg-light text-center fw-bold"}>
                                         <span id={styleHeader.containerTitle} className="h4 fw-bold ">{window.title}</span>
                                     </div>
                                     <div className={ bg ? "card-text m-2 text-light" : "card-text m-2"}>
