@@ -36,7 +36,7 @@
     margin: auto;
 }
 .openButton{
-    width: 25%;
+    width: 27%;
     background: lightgreen;
     font-weight: bold;
     display: block;
@@ -56,7 +56,7 @@
     transition: 0.3s;
 }
 .closeButton{
-    width: 25%;
+    width: 27%;
     background: darkred;
     color: white;
     font-weight: bold;

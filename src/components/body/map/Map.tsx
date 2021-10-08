@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {GoogleMap, LoadScript, Marker} from '@react-google-maps/api';
-import {JcdecauxRequest} from "../../../http/Jcdecaux.request";
-import styleMap from "./map.module.css"
+import axios from "axios";
 
 const containerStyle = {
     width: '45vw',
@@ -30,11 +29,20 @@ interface locationMarker {
 }
 
 function Map() {
-    const[centerMarker, setCenterMarker] = useState(centerMarkerOne)
-    useEffect(JcdecauxRequest, [])
+    const [centerMarker, setCenterMarker] = useState(centerMarkerOne)
+    function JcdecauxRequest (){
+        axios.get(`${process.env.REACT_APP_JCD_URL}`).then(
+            (R) => {
+                console.log(R.data)
+                const stationsData =  R.data
+                setCenterMarker(stationsData)
+            }
+        )
+    }
+    useEffect(()=>{JcdecauxRequest()}, [])
     return (
         <LoadScript
-            googleMapsApiKey= {`${process.env.REACT_APP_API_KEY}`}
+            googleMapsApiKey={`${process.env.REACT_APP_API_KEY}`}
         >
             <div className={"m-auto"}>
                 <GoogleMap
@@ -42,10 +50,15 @@ function Map() {
                     center={center}
                     zoom={11}
                 >
-                    { /* Child components, such as markers, info windows, etc. */ }
+                    { /* Child components, such as markers, info windows, etc. */}
                     {
-                        centerMarker.map((C)=> {
-                            return (<Marker key={C.lat} position={C} icon={"https://www.icone-png.com/png/39/38981.png"}/>)
+                        centerMarker.map((C) => {
+                            if(!isNaN(C.lat)){
+                                return (<Marker key={C.lat} position={{lat: C.lat, lng: C.lng}} icon={"https://www.icone-png.com/png/39/38981.png"}/>)
+                            }else{
+                                console.log("not a number yet")
+                            }
+
                         })
                     }
                     <></>
@@ -53,6 +66,7 @@ function Map() {
             </div>
         </LoadScript>
     )
+
 }
 
 export default React.memo(Map)
