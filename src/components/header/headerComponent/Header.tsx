@@ -38,7 +38,7 @@ const Header: FunctionComponent = (props) => {
                 onClick={()=>setToggleWindow(!toggleWindow)}
                 className={toggleWindow ? styleHeader.closeButton : styleHeader.openButton}
             >
-                {toggleWindow ? "Fermer les étapes" : "Lire les étapes"}
+                {toggleWindow ? "OFF" : "ON"}
             </button>
             <div className={" container row mt-5 m-auto"}>
 
