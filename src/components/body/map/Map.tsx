@@ -12,16 +12,6 @@ const center = {
     lng: 1.444209
 };
 
-const centerMarkerOne: locationMarker[] = [
-    {
-        lat: 43.604652,
-        lng: 1.444209
-    },
-    {
-        lat: 43.624652,
-        lng: 1.444209
-    }
-]
 
 interface locationMarker {
     lat: number
@@ -29,9 +19,9 @@ interface locationMarker {
 }
 
 function Map() {
-    const [centerMarker, setCenterMarker] = useState(centerMarkerOne)
+    const [centerMarker, setCenterMarker] = useState<locationMarker[]>()
     function JcdecauxRequest (){
-        axios.get(`${process.env.REACT_APP_JCD_URL}`).then(
+        axios.get(`https://api.jcdecaux.com/vls/v1/stations?contract=Toulouse&apiKey=e56f43cd9e4a4aa5260f59360a683fa28aaa4e6b`).then(
             (R) => {
                 console.log(R.data)
                 const stationsData =  R.data
@@ -39,7 +29,7 @@ function Map() {
             }
         )
     }
-    useEffect(()=>{JcdecauxRequest()}, [])
+    useEffect(JcdecauxRequest, [])
     return (
         <LoadScript
             googleMapsApiKey={`${process.env.REACT_APP_API_KEY}`}
@@ -52,13 +42,11 @@ function Map() {
                 >
                     { /* Child components, such as markers, info windows, etc. */}
                     {
-                        centerMarker.map((C) => {
-                            if(!isNaN(C.lat)){
-                                return (<Marker key={C.lat} position={{lat: C.lat, lng: C.lng}} icon={"https://www.icone-png.com/png/39/38981.png"}/>)
-                            }else{
-                                console.log("not a number yet")
-                            }
-
+                        centerMarker?.map((C) => {
+                            //@ts-ignore
+                            console.log(C["position"])
+                            //@ts-ignore
+                            return (<Marker key={C.lat} position={{lat: C["position"].lat, lng: C["position"].lng}} icon={"https://www.icone-png.com/png/39/38981.png"}/>)
                         })
                     }
                     <></>
