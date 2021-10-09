@@ -2,18 +2,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap');
 
 @media (max-width: 750px) {
-    .logo{
+    .logo {
         width: 100% !important;
     }
 }
-.containerLight{
+.containerLight {
     background: rgb(80, 80, 80);
     margin-right: 0.5%;
     margin-left: 0.5%;
     margin-bottom: 0.5%;
     border-radius: 5px;
 }
-.containerDark{
+.containerDark {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -24,38 +24,10 @@
     margin-bottom: 0.5%;
     border-radius: 5px;
 }
-#containerTitle{
+#containerTitle {
     font-family: 'Libre Baskerville', serif;
 }
-#fontText{
-    font-family: 'Libre Baskerville', serif;
-}
-.logo{
-    width: 25%;
-    display: block;
-    margin: auto;
-}
-.openButton{
-    width: 27%;
-    background: lightgreen;
-    font-weight: bold;
-    display: block;
-    margin: 2% auto auto;
-    border: inset grey 2px;
-    border-radius: 5px;
-    transform: scale(1.05);
-    box-shadow: lightgreen 0 0 0 1px;
-}
-.openButton:active{
-    transform: scale(1);
-    box-shadow: black -1px -1px 2px,
-                darkgrey 1px 1px 2px;
-}
-.openButton:hover{
-    box-shadow: lightgreen 0 0 0 2px;
-    transition: 0.3s;
-}
-.closeButton{
+.closeButton {
     width: 27%;
     background: darkred;
     color: white;
@@ -67,12 +39,41 @@
     transform: scale(1.05);
     box-shadow: darkred 0 0 0 1px;
 }
-.closeButton:active{
+.closeButton:active {
     transform: scale(1);
     box-shadow: black -1px -1px 2px,
     darkgrey 1px 1px 2px;
 }
-.closeButton:hover{
+
+.closeButton:hover {
     box-shadow: darkred 0 0 0 3px;
+    transition: 0.3s;
+}
+#fontText {
+    font-family: 'Libre Baskerville', serif;
+}
+.logo {
+    width: 25%;
+    display: block;
+    margin: auto;
+}
+.openButton {
+    width: 27%;
+    background: lightgreen;
+    font-weight: bold;
+    display: block;
+    margin: 2% auto auto;
+    border: inset grey 2px;
+    border-radius: 5px;
+    transform: scale(1.05);
+    box-shadow: lightgreen 0 0 0 1px;
+}
+.openButton:active {
+    transform: scale(1);
+    box-shadow: black -1px -1px 2px,
+    darkgrey 1px 1px 2px;
+}
+.openButton:hover {
+    box-shadow: lightgreen 0 0 0 2px;
     transition: 0.3s;
 }

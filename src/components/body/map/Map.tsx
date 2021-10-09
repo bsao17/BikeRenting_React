@@ -2,29 +2,29 @@ import React, {useEffect, useState} from 'react'
 import {GoogleMap, LoadScript, Marker} from '@react-google-maps/api';
 import axios from "axios";
 
+{/* map size */}
 const containerStyle = {
     width: '45vw',
     height: '90vh'
 };
-
+{/* Google map center */}
 const center = {
     lat: 43.604652,
     lng: 1.444209
 };
 
-
 interface locationMarker {
     lat: number
     lng: number
 }
-
+{/*Props Interface*/}
 interface stationProps {
     updateStation: Function
 }
 
+{/*Component Map*/}
 function Map({updateStation}: stationProps) {
     const [centerMarker, setCenterMarker] = useState<locationMarker[]>()
-
     function JcdecauxRequest() {
         axios.get(`https://api.jcdecaux.com/vls/v1/stations?contract=Toulouse&apiKey=e56f43cd9e4a4aa5260f59360a683fa28aaa4e6b`).then(
             (R) => {
@@ -34,7 +34,6 @@ function Map({updateStation}: stationProps) {
             }
         )
     }
-
     useEffect(JcdecauxRequest, [])
     return (
         <LoadScript
@@ -46,9 +45,7 @@ function Map({updateStation}: stationProps) {
                     center={center}
                     zoom={12}
                 >
-                    { /* Child components, such as markers, info windows, etc. */}
-                    {
-                        centerMarker?.map((C) => {
+                    {centerMarker?.map((C) => {
                             //@ts-ignore
                             if (C["available_bikes"] === 0) {
                                 //@ts-ignore
@@ -59,9 +56,9 @@ function Map({updateStation}: stationProps) {
                                 //@ts-ignore
                             } else if (C["available_bikes"] <= 5) {
                                 //@ts-ignore
-                                return (<Marker onClick={() => { updateStation(C["address"], C["name"], C["available_bikes"]) }} key={C["address"]}
-                                    //@ts-ignore
-                                                position={{lat: C["position"].lat, lng: C["position"].lng}}
+                                return (<Marker onClick={() => { updateStation(C["address"], C["name"], C["available_bikes"]) }}
+                                                //@ts-ignore
+                                                key={C["address"]} position={{lat: C["position"].lat, lng: C["position"].lng}}
                                                 icon={"http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"}/>)
                             } else {
                                 //@ts-ignore
@@ -70,8 +67,6 @@ function Map({updateStation}: stationProps) {
                                                 position={{lat: C["position"].lat, lng: C["position"].lng}}
                                                 icon={"http://maps.google.com/mapfiles/ms/icons/green-dot.png"}/>)
                             }
-
-
                         })
                     }
                     <></>
