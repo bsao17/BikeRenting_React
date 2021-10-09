@@ -38,15 +38,36 @@ function Map() {
                 <GoogleMap
                     mapContainerStyle={containerStyle}
                     center={center}
-                    zoom={11}
+                    zoom={12}
                 >
                     { /* Child components, such as markers, info windows, etc. */}
                     {
                         centerMarker?.map((C) => {
                             //@ts-ignore
-                            console.log(C["position"])
-                            //@ts-ignore
-                            return (<Marker key={C.lat} position={{lat: C["position"].lat, lng: C["position"].lng}} icon={"https://www.icone-png.com/png/39/38981.png"}/>)
+                            if(C["available_bikes"] === 0){
+                                //@ts-ignore
+                                console.log(C["available_bikes"])
+                                //@ts-ignore
+                                return (<Marker key={C["address"]}
+                                    //@ts-ignore
+                                                position={{lat: C["position"].lat, lng: C["position"].lng}}
+                                                icon={"http://maps.google.com/mapfiles/ms/icons/red-dot.png"}/>)
+                                //@ts-ignore
+                            }else if(C["available_bikes"] <= 5){
+                                //@ts-ignore
+                                return (<Marker key={C["address"]}
+                                    //@ts-ignore
+                                                position={{lat: C["position"].lat, lng: C["position"].lng}}
+                                                icon={"http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"}/>)
+                            } else{
+                                //@ts-ignore
+                                return (<Marker key={C["address"]}
+                                    //@ts-ignore
+                                                position={{lat: C["position"].lat, lng: C["position"].lng}}
+                                                icon={"http://maps.google.com/mapfiles/ms/icons/green-dot.png"}/>)
+                            }
+
+
                         })
                     }
                     <></>
