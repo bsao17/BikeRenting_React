@@ -44,7 +44,6 @@
     box-shadow: black -1px -1px 2px,
     darkgrey 1px 1px 2px;
 }
-
 .closeButton:hover {
     box-shadow: darkred 0 0 0 3px;
     transition: 0.3s;

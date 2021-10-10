@@ -7,12 +7,12 @@ import {backgroundState} from "../../../atoms/background";
 
 const Body: FunctionComponent = () => {
     const [bg] = useRecoilState(backgroundState)
-    const [stationAddress, setStationAddress] = useState("")
-    const [nameStation, setNameStation] = useState("")
-    const [bicycleAvailable, setBicycleAvailable] = useState("")
+    const [stationAddress, setStationAddress] = useState<string>()
+    const [nameStation, setNameStation] = useState<string>()
+    const [bicycleAvailable, setBicycleAvailable] = useState<string>()
 
-    {/*child HTTP request from API JCDecaux*/}
-    const stationProps = (A: string, N: string, B: string): any => {
+    /*child HTTP request from API JCDecaux*/
+    const stationProps = (A: string, N: string, B: string): void => {
         setStationAddress(A)
         setNameStation(N)
         setBicycleAvailable(B)
