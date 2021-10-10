@@ -11,9 +11,8 @@ const Body: FunctionComponent = () => {
     const [nameStation, setNameStation] = useState("")
     const [bicycle, setBicycle] = useState("")
 
-    {/*child HTTP request from API JCDecaux*/
-    }
-    const childReq = (A: string, N: string, B: string): any => {
+    {/*child HTTP request from API JCDecaux*/}
+    const stationProps = (A: string, N: string, B: string): any => {
         setAddress(A)
         setNameStation(N)
         setBicycle(B)
@@ -27,7 +26,7 @@ const Body: FunctionComponent = () => {
                        id={styleBody.fontText}>Séléctionnez votre station sur la carte</p>
 
                     {/* Child component loop*/}
-                    <Map updateStation={childReq}/>
+                    <Map updateStation={stationProps}/>
 
                 </div>
                 <div
