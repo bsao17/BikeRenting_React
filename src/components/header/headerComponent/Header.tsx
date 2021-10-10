@@ -1,5 +1,5 @@
 import React, {FunctionComponent, ReactElement, useEffect, useState} from 'react';
-import Carousel from "../carousel/Carousel";
+import {Carousel} from "../../index";
 import styleHeader from "./header.module.css";
 import axios from "axios";
 import {useRecoilState} from "recoil";

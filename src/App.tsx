@@ -1,6 +1,5 @@
 import React from 'react';
-import Header from "./components/header/headerComponent/Header";
-import Body from "./components/body/bodyComponent/Body";
+import {Body, Header} from "./components/index"
 import styleApp from "./App.module.css"
 import {useRecoilState} from "recoil";
 import {backgroundState} from "./atoms/background";
