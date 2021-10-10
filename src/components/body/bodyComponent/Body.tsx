@@ -7,15 +7,15 @@ import {backgroundState} from "../../../atoms/background";
 
 const Body: FunctionComponent = () => {
     const [bg] = useRecoilState(backgroundState)
-    const [address, setAddress] = useState("")
+    const [stationAddress, setStationAddress] = useState("")
     const [nameStation, setNameStation] = useState("")
-    const [bicycle, setBicycle] = useState("")
+    const [bicycleAvailable, setBicycleAvailable] = useState("")
 
     {/*child HTTP request from API JCDecaux*/}
     const stationProps = (A: string, N: string, B: string): any => {
-        setAddress(A)
+        setStationAddress(A)
         setNameStation(N)
-        setBicycle(B)
+        setBicycleAvailable(B)
     }
     return (
         <div className={styleBody.container}>
@@ -42,12 +42,12 @@ const Body: FunctionComponent = () => {
                             </div>
                             <div className={"d-flex flex-column"}>
                                 <label htmlFor="address">Adresse</label>
-                                <input className={"form-control"} type="text" id={"address"} defaultValue={address}
+                                <input className={"form-control"} type="text" id={"address"} defaultValue={stationAddress}
                                        name={"address"}/>
                             </div>
                             <div className={"d-flex flex-column"}>
                                 <label htmlFor="cycle">Vélos disponibles</label>
-                                <input className={"form-control"} type="text" id={"cycle"} defaultValue={bicycle}
+                                <input className={"form-control"} type="text" id={"cycle"} defaultValue={bicycleAvailable}
                                        name={"cycle"}/>
                             </div>
                             <div className={"d-flex flex-column"}>

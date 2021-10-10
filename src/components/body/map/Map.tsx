@@ -24,13 +24,13 @@ interface stationProps {
 
 {/*Component Map*/}
 function Map({updateStation}: stationProps) {
-    const [centerMarker, setCenterMarker] = useState<locationMarker[]>()
+    const [bicycleStationMarker, setBicycleStationMarker] = useState<locationMarker[]>()
     function JcdecauxRequest() {
         axios.get(`https://api.jcdecaux.com/vls/v1/stations?contract=Toulouse&apiKey=e56f43cd9e4a4aa5260f59360a683fa28aaa4e6b`).then(
             (R) => {
                 console.log(R.data)
                 const stationsData = R.data
-                setCenterMarker(stationsData)
+                setBicycleStationMarker(stationsData)
             }
         )
     }
@@ -45,7 +45,7 @@ function Map({updateStation}: stationProps) {
                     center={center}
                     zoom={12}
                 >
-                    {centerMarker?.map((C) => {
+                    {bicycleStationMarker?.map((C) => {
                             //@ts-ignore
                             if (C["available_bikes"] === 0) {
                                 //@ts-ignore
