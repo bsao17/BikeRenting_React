@@ -1,12 +1,8 @@
-@media (max-width: 750px) {
-    .container {
-        display: none;
-    }
-}
+@import "../../sass/mixins";
+@include carouselMediaQueries;
 .container {
     width: 60%;
-    margin: auto;
-    margin-top: 20px;
+    margin: 20px auto auto;
 }
 .image {
     display: block;

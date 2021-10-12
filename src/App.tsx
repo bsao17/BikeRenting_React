@@ -1,6 +1,6 @@
 import React from 'react';
 import {Body, Header} from "./components/index"
-import styleApp from "./App.module.css"
+import styleApp from "./App.module.scss"
 import {useRecoilState} from "recoil";
 import {backgroundState} from "./atoms/background";
 

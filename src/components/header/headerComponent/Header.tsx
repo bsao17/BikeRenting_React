@@ -1,6 +1,6 @@
 import React, {FunctionComponent, ReactElement, useEffect, useState} from 'react';
 import {Carousel} from "../../index";
-import styleHeader from "./header.module.css";
+import styleHeader from "./header.module.scss";
 import axios from "axios";
 import {useRecoilState} from "recoil";
 import {backgroundState} from "../../../atoms/background";

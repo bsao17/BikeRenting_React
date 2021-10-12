@@ -1,5 +1,5 @@
 import React, {FunctionComponent, useState} from 'react';
-import styleBody from "./body.module.css"
+import styleBody from "./body.module.scss"
 import {Map} from "../../index"
 import {useRecoilState} from "recoil";
 import {backgroundState} from "../../../atoms/background";
