@@ -28,7 +28,7 @@ function Map({updateStation}: stationProps) {
     const [bicycleStationMarker, setBicycleStationMarker] = useState<locationMarker[]>()
 
     function JcdecauxRequest() {
-        axios.get(`https://api.jcdecaux.com/vls/v1/stations?contract=Toulouse&apiKey=e56f43cd9e4a4aa5260f59360a683fa28aaa4e6b`).then(
+        axios.get(`${process.env.REACT_APP_JCD_URL}`).then(
             (R) => {
                 console.log(R.data)
                 const stationsData = R.data
