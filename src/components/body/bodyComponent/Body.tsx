@@ -20,13 +20,14 @@ const Body: FunctionComponent = () => {
     return (
         <div className={styleBody.container}>
             <section className={"row w-100 m-auto"}>
+                <Map updateStation={stationProps}/>
+
                 <div
                     className={bg ? "card card-body col-lg-4 col-md-4 col-sm m-2 bg-secondary" : "card card-body col-lg-4 col-md-4 col-sm m-2 bg-light"}>
                     <p className={bg ? "text-center text-light h2 " : "text-center h2"}
                        id={styleBody.fontText}>Séléctionnez votre station sur la carte</p>
 
                     {/* Child component loop*/}
-                    <Map updateStation={stationProps}/>
 
                 </div>
                 <div

@@ -1,0 +1,22 @@
+@mixin carouselMediaQueries{
+  @media (max-width: 750px) {
+    .container {
+      display: none;
+    }
+  }
+}
+@mixin mapMediaQueries {
+  @media screen and (max-width: 750px) {
+     #googleMap{
+       width: 90%;
+     }
+  }
+}
+@mixin logoMediaQueries{
+  @media screen and (max-width: 750px){
+    .logo {
+      width: 90% !important;
+      margin: auto !important;
+    }
+  }
+}

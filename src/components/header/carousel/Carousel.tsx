@@ -16,19 +16,19 @@ const Carousel = () => {
                 <div className="carousel-inner">
                     <div className="carousel-item active">
                         <img src={"images/velib.jpg"} className={styleCarousel.image} alt="..."/>
-                        <div className="carousel-caption d-none d-md-block bg-dark rounded-pill text-light">
+                        <div className="carousel-caption d-none d-md-block bg-dark rounded-pill text-light" style={{boxShadow: "whitesmoke 0 0 35px"}}>
                             <h5><span className={"h4"}>1</span> : Séléctionner Votre Station</h5>
                         </div>
                     </div>
                     <div className="carousel-item">
                         <img src={"images/velib2.jpg"} className={styleCarousel.image} alt="..."/>
-                        <div className="carousel-caption d-none d-md-block bg-dark rounded-pill text-light ">
+                        <div className="carousel-caption d-none d-md-block bg-dark rounded-pill text-light" style={{boxShadow: "whitesmoke 0 0 35px"}}>
                             <h5><span className={"h4"}>2</span> : Réserver Votre Vélo</h5>
                         </div>
                     </div>
                     <div className="carousel-item">
                         <img src={"images/velib3.jpg"} className={styleCarousel.image} alt="..."/>
-                        <div className="carousel-caption d-none d-md-block bg-dark rounded-pill text-light">
+                        <div className="carousel-caption d-none d-md-block bg-dark rounded-pill text-light" style={{boxShadow: "whitesmoke 0 0 35px"}}>
                             <h5 className={""}><span className={"h4"}>3</span> : Récupérer et Circuler</h5>
                         </div>
                     </div>

@@ -4,7 +4,7 @@ import axios from "axios";
 
 {/* map size */}
 const containerStyle = {
-    width: '45vw',
+    width: '95vw',
     height: '90vh'
 };
 {/* Google map center */}
@@ -17,6 +17,7 @@ interface locationMarker {
     lat: number
     lng: number
 }
+
 {/*Props Interface*/}
 interface stationProps {
     updateStation: Function
@@ -25,6 +26,7 @@ interface stationProps {
 {/*Component Map*/}
 function Map({updateStation}: stationProps) {
     const [bicycleStationMarker, setBicycleStationMarker] = useState<locationMarker[]>()
+
     function JcdecauxRequest() {
         axios.get(`https://api.jcdecaux.com/vls/v1/stations?contract=Toulouse&apiKey=e56f43cd9e4a4aa5260f59360a683fa28aaa4e6b`).then(
             (R) => {
@@ -34,40 +36,48 @@ function Map({updateStation}: stationProps) {
             }
         )
     }
+
     useEffect(JcdecauxRequest, [])
     return (
         <LoadScript
             googleMapsApiKey={`${process.env.REACT_APP_API_KEY}`}
         >
-            <div className={"m-auto"}>
+            <div className={"d-flex justify-content-center align-items-center"}>
                 <GoogleMap
                     mapContainerStyle={containerStyle}
                     center={center}
                     zoom={12}
                 >
                     {bicycleStationMarker?.map((C) => {
+                        //@ts-ignore
+                        if (C["available_bikes"] === 0) {
                             //@ts-ignore
-                            if (C["available_bikes"] === 0) {
+                            return (<Marker key={C["address"]}
                                 //@ts-ignore
-                                return (<Marker key={ C["address"] }
-                                    //@ts-ignore
-                                                position={ {lat: C["position"].lat, lng: C["position"].lng} }
-                                                icon={"http://maps.google.com/mapfiles/ms/icons/red-dot.png"}/>)
+                                            position={{lat: C["position"].lat, lng: C["position"].lng}}
+                                            icon={"http://maps.google.com/mapfiles/ms/icons/red-dot.png"}/>)
+                            //@ts-ignore
+                        } else if (C["available_bikes"] <= 5) {
+                            //@ts-ignore
+                            return (<Marker onClick={() => {
                                 //@ts-ignore
-                            } else if (C["available_bikes"] <= 5) {
+                                updateStation(C["address"], C["name"], C["available_bikes"])
+                            }}
                                 //@ts-ignore
-                                return (<Marker onClick={() => { updateStation(C["address"], C["name"], C["available_bikes"]) }}
-                                                //@ts-ignore
-                                                key={C["address"]} position={{lat: C["position"].lat, lng: C["position"].lng}}
-                                                icon={"http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"}/>)
-                            } else {
+                                            key={C["address"]}
                                 //@ts-ignore
-                                return (<Marker onClick={() => { updateStation(C["address"], C["name"], C["available_bikes"]) }} key={C["address"]}
-                                    //@ts-ignore
-                                                position={{lat: C["position"].lat, lng: C["position"].lng}}
-                                                icon={"http://maps.google.com/mapfiles/ms/icons/green-dot.png"}/>)
-                            }
-                        })
+                                            position={{lat: C["position"].lat, lng: C["position"].lng}}
+                                            icon={"http://maps.google.com/mapfiles/ms/icons/yellow-dot.png"}/>)
+                        } else {
+                            //@ts-ignore
+                            return (<Marker onClick={() => {
+                                //@ts-ignore
+                                updateStation(C["address"], C["name"], C["available_bikes"])}} key={C["address"]}
+                                //@ts-ignore
+                                            position={{lat: C["position"].lat, lng: C["position"].lng}}
+                                            icon={"http://maps.google.com/mapfiles/ms/icons/green-dot.png"}/>)
+                        }
+                    })
                     }
                     <></>
                 </GoogleMap>
