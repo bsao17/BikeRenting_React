@@ -51,7 +51,8 @@
 .logo {
     width: 25%;
     display: block;
-    margin: auto;
+    margin: 5px auto auto;
+    filter: invert(0.2) blur(0.5px) sepia(0.5);
 }
 .openButton {
     width: 27%;

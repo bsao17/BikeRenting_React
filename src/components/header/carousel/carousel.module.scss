@@ -1,8 +1,9 @@
 @import "../../sass/mediaQueries";
 @include carouselMediaQueries;
 .container {
-    width: 60%;
-    margin: 20px auto auto;
+    width: 90%;
+    height: 70vh;
+    margin: auto auto;
 }
 .image {
     display: block;
