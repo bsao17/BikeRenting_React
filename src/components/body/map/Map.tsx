@@ -46,7 +46,7 @@ function Map({updateStation}: stationProps) {
                 <GoogleMap
                     mapContainerStyle={containerStyle}
                     center={center}
-                    zoom={12}
+                    zoom={14}
                 >
                     {bicycleStationMarker?.map((C) => {
                         //@ts-ignore
