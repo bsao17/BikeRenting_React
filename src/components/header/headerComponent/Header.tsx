@@ -1,4 +1,4 @@
-import React, {FunctionComponent, ReactElement, useEffect, useMemo, useState} from 'react';
+import React, {FunctionComponent, ReactElement, useCallback, useEffect, useState} from 'react';
 import {Carousel} from "../../index";
 import styleHeader from "./header.module.scss";
 import axios from "axios";
@@ -18,16 +18,15 @@ const Header: FunctionComponent = (props) => {
     const [toggleWindow, setToggleWindow] = useState<Boolean>(false)
     const[bg] = useRecoilState(backgroundState)
 
-    const requestHttp = useMemo((): Function =>{
-        /*HTTP Request on API*/
-        return function requestDb() {
+    const requestHttp = useCallback(
+        function requestDb() {
             axios.get(`${process.env.REACT_APP_URL}`)
                 .then((r) => {
                     setArticleContent(r.data);
                     console.log(r.data)
                 })
         }
-    }, [])
+        , [])
     useEffect(()=>requestHttp(), [requestHttp])
     return (
         <div className={bg ? styleHeader.containerDark : styleHeader.containerLight} id={styleHeader.container} >
