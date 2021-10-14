@@ -1,9 +1,11 @@
 @import "../../sass/mediaQueries";
 @include carouselMediaQueries;
-.container {
-    width: 90%;
-    height: 70vh;
-    margin: auto auto;
+#container {
+    width: 95%;
+    height: 80vh;
+    margin: auto;
+    border: double 10px grey;
+    border-radius: 20px;
 }
 .image {
     display: block;
@@ -11,4 +13,13 @@
     height: 60vh;
     border: double 10px grey;
     border-radius: 20px;
+}
+#leftWindow{
+
+}
+#middleWindow{
+
+}
+#rightWindow{
+
 }
