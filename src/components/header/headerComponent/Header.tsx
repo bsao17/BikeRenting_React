@@ -9,7 +9,19 @@ import {backgroundState} from "../../../atoms/background";
 interface Article {
     id: string
     title: string
-    content: string
+    content: string,
+    image: string
+}
+const imageSizeTrue = {
+    width: "20vw",
+    height: "20vw",
+    margin: "auto",
+}
+const imageSizeFalse = {
+    width: "20vw",
+    height: "20vh",
+    margin: "auto",
+    display: "none"
 }
 
 
@@ -23,7 +35,7 @@ const Header: FunctionComponent = (props) => {
             axios.get(`${process.env.REACT_APP_URL}`)
                 .then((r) => {
                     setArticleContent(r.data);
-                    console.log(r.data)
+                    console.log({"Node jason database":r.data})
                 })
         }
         , [])
@@ -37,7 +49,7 @@ const Header: FunctionComponent = (props) => {
                 onClick={() => setToggleWindow(!toggleWindow)}
                 className={toggleWindow ? styleHeader.closeButton : styleHeader.openButton}
             >
-                {toggleWindow ? "OFF" : "ON"}
+                {toggleWindow ? "FERMER" : "OUVRIR"}
             </button>
             <div className={" container row g-2  m-auto"}>
 
@@ -50,6 +62,7 @@ const Header: FunctionComponent = (props) => {
                                     className={bg ? "card-header bg-dark text-center text-light fw-bold " : "card-header bg-light text-center fw-bold"}>
                                     <span id={styleHeader.containerTitle} className="h4 fw-bold ">{window.title}</span>
                                 </div>
+                                <img style={toggleWindow ? imageSizeTrue : imageSizeFalse} src={window.image} alt=""/>
                                 <div className={bg ? "card-text m-2 text-light" : "card-text m-2"}>
                                     {toggleWindow && window.content}
                                 </div>

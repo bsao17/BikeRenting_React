@@ -2,12 +2,12 @@ import React, {useEffect, useState} from 'react'
 import {GoogleMap, LoadScript, Marker} from '@react-google-maps/api';
 import axios from "axios";
 
-{/* map size */}
+/* map size */
 const containerStyle = {
     width: '95vw',
     height: '90vh'
 };
-{/* Google map center */}
+/* Google map center */
 const center = {
     lat: 43.604652,
     lng: 1.444209
@@ -18,12 +18,12 @@ interface locationMarker {
     lng: number
 }
 
-{/*Props Interface*/}
+/*Props Interface*/
 interface stationProps {
     updateStation: Function
 }
 
-{/*Component Map*/}
+/*Component Map*/
 function Map({updateStation}: stationProps) {
     const [bicycleStationMarker, setBicycleStationMarker] = useState<locationMarker[]>()
 
