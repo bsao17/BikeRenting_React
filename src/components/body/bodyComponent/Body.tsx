@@ -62,10 +62,8 @@ const Body: FunctionComponent = () => {
                 {/*Right Window*/}
                 <div
                     className={bg ? "card card-body col-lg-4 col-md-4 col-sm m-2 bg-secondary" : "card card-body col-lg-4 col-md-4 col-sm m-2 bg-light"}>
-                    <section className={"m-2"}>
                         <p className={bg ? "text-center text-light h2 " : "text-center h2"}
-                           id={styleBody.fontText}>Validation</p>
-                    </section>
+                           id={styleBody.fontText}>Signature</p>
                     <Signature/>
                 </div>
             </section>

@@ -1,19 +1,28 @@
-import React, {Component} from 'react';
+import React, {MutableRefObject, useRef} from 'react';
 
 
-const canvas = {
+const canvasStyle = {
     width: "100%",
     height: "100%",
-    border: "black 1px solid"
+    border: "black 1px solid",
+    borderRadius: "5px",
+    backgroundColor: "white"
 }
-class Signature extends Component {
-    render() {
-        return (
-            <div style={canvas}>
 
-            </div>
-        );
-    }
+interface propsType {
+    props: string
+}
+
+function Signature() {
+    const canvasRef = useRef<HTMLCanvasElement>(null)
+    const canvas = canvasRef.current
+
+    return (
+        <canvas ref={canvasRef} style={canvasStyle} >
+
+        </canvas>
+    );
+
 }
 
 export default Signature;
