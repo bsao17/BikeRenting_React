@@ -6,7 +6,7 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 const Carousel = () => {
     return (
         <div className={"col-lg-10 col-md-12 col-sm-12 p-3 bg-secondary m-auto"}>
-            <OwlCarousel className='owl-theme' loop margin={5} autoWidth={true}>
+            <OwlCarousel className='owl-theme' loop margin={5} autoplay={true} nav autoWidth={true}>
                 <div className='item'>
                     <img src={"./images/velib.jpg"} alt=""/>
                 </div>
@@ -25,7 +25,10 @@ const Carousel = () => {
                 <div className='item'>
                     <img src={"./images/velib6.jpg"} alt=""/>
                 </div>
-            </OwlCarousel>;
+                <div className='item'>
+                    <img src={"./images/velib7.jpg"} alt=""/>
+                </div>
+            </OwlCarousel>
         </div>
     );
 };

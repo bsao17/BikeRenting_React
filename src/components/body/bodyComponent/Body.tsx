@@ -3,6 +3,7 @@ import styleBody from "./body.module.scss"
 import {Map} from "../../index"
 import {useRecoilState} from "recoil";
 import {backgroundState} from "../../../atoms/background";
+import Signature from "../signature/Signature";
 
 
 const Body: FunctionComponent = () => {
@@ -65,10 +66,10 @@ const Body: FunctionComponent = () => {
                         <p className={bg ? "text-center text-light h2 " : "text-center h2"}
                            id={styleBody.fontText}>Validation</p>
                     </section>
+                    <Signature/>
                 </div>
             </section>
         </div>
     );
 }
-
 export default Body;

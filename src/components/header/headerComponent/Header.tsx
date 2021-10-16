@@ -27,7 +27,7 @@ const imageSizeFalse = {
 
 const Header: FunctionComponent = (props) => {
     const [articleContent, setArticleContent] = useState([])
-    const [toggleWindow, setToggleWindow] = useState<Boolean>(false)
+    const [toggleWindow, setToggleWindow] = useState<Boolean>(true)
     const [bg] = useRecoilState(backgroundState)
 
     const requestHttp = useCallback(

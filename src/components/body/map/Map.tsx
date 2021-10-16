@@ -4,7 +4,7 @@ import axios from "axios";
 
 /* map size */
 const containerStyle = {
-    width: '95vw',
+    width: '100vw',
     height: '90vh'
 };
 /* Google map center */
