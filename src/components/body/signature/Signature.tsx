@@ -15,7 +15,7 @@ interface propsType {
 
 function Signature() {
     const canvasRef = useRef<HTMLCanvasElement>(null)
-    const canvas = canvasRef.current
+    const canvasCtx = canvasRef.current?.getContext('2d')
 
     return (
         <canvas ref={canvasRef} style={canvasStyle} >
