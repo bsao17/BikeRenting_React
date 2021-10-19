@@ -14,7 +14,7 @@
 }
 @mixin logoMediaQueries{
   @media screen and (max-width: 750px){
-    .logo {
+    #logo {
       width: 90% !important;
       margin: 5px auto !important;
     }

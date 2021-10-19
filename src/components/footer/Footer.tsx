@@ -15,18 +15,27 @@ export default function Footer(){
            <div className="row">
                <div className="col-lg-4 col-md-4 col-sm-12">
                    <h5 className={styleFooter.title}>plus</h5>
+                   <ul className={styleFooter.list}>
+                       <li className={styleFooter.listDot}>First</li>
+                       <li className={styleFooter.listDot}>Second</li>
+                       <li className={styleFooter.listDot}>Thirst</li>
+                   </ul>
                </div>
                <div className="col-lg-4 col-md-6 col-sm-12">
                    <h5 className={styleFooter.title}>Document</h5>
-                   <ul>
-                       <li>First</li>
-                       <li>Second</li>
-                       <li>Thirst</li>
+                   <ul className={styleFooter.list}>
+                       <li className={styleFooter.listDot}>First</li>
+                       <li className={styleFooter.listDot}>Second</li>
+                       <li className={styleFooter.listDot}>Thirst</li>
                    </ul>
-
                </div>
                <div className="col-lg-4 col-md-6 col-sm-12">
-                   <div className={styleFooter.title}>Conditions</div>
+                   <h5 className={styleFooter.title}>Conditions</h5>
+                   <ul className={styleFooter.list}>
+                       <li className={styleFooter.listDot}>First</li>
+                       <li className={styleFooter.listDot}>Second</li>
+                       <li className={styleFooter.listDot}>Thirst</li>
+                   </ul>
                    column three
                </div>
            </div>

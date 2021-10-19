@@ -1,3 +1,5 @@
+@import "../sass/mediaQueries";
+@include logoMediaQueries;
 #logo{
   width: 15%;
   margin-top: 10px;
@@ -5,6 +7,15 @@
   justify-content: flex-start;
   color: white;
   filter: invert(0.2) blur(0.5px) sepia(0.5);
+}
+.list{
+  list-style: none;
+}
+.listDot::before{
+  content: "~";
+  font-size: 1.2em;
+  color: red;
+  margin-left: -1em
 }
 .title{
   color: #999;
