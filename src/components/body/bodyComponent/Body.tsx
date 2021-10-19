@@ -3,6 +3,7 @@ import styleBody from "./body.module.scss"
 import {Map, Signature} from "../../index"
 import {useRecoilState} from "recoil";
 import {backgroundState} from "../../../atoms/background";
+import Footer from "../../footer/Footer";
 
 
 const Body: FunctionComponent = () => {
@@ -25,7 +26,7 @@ const Body: FunctionComponent = () => {
 
                 {/*Left Window*/}
                 <div
-                    className={bg ? "text-center text-light h2 bg-secondary w-50" : "text-center text-light h2 bg-secondary w-50"}>
+                    className={bg ? "text-center text-light h2 my-2 bg-secondary w-75 rounded" : "text-center text-light h2 my-2 bg-secondary w-75 rounded"}>
                     <p
                         id={styleBody.fontText}>Informations et Réservation</p>
                     <form className={"form-control"} id={styleBody.form}>
@@ -60,6 +61,7 @@ const Body: FunctionComponent = () => {
                     </form>
                 </div>
 
+                <Footer/>
             </section>
         </div>
     );

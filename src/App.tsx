@@ -3,7 +3,6 @@ import {Body, Header} from "./components/index"
 import styleApp from "./App.module.scss"
 import {useRecoilState} from "recoil";
 import {backgroundState} from "./atoms/background";
-/*import Footer from "./components/footer/Footer";*/
 
 function App() {
     const[bg, setBg] = useRecoilState(backgroundState)

@@ -1,4 +1,4 @@
-#logo{
+#logo {
   width: 15%;
   margin-top: 10px;
   display: flex;
@@ -6,7 +6,8 @@
   color: white;
   filter: invert(0.2) blur(0.5px) sepia(0.5);
 }
-.title{
+
+.title {
   color: #999;
   font-size: 20px;
   font-weight: 700;
@@ -15,3 +16,5 @@
   letter-spacing: 0.08em;
   text-align: center;
 }
+
+/*# sourceMappingURL=footer.module.css.map */
