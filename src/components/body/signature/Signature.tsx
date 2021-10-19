@@ -1,17 +1,14 @@
-import React, {MutableRefObject, useRef} from 'react';
+import React, {useRef} from 'react';
 
 
 const canvasStyle = {
-    width: "100%",
-    height: "100%",
-    border: "black 1px solid",
+    width: "auto",
     borderRadius: "5px",
-    backgroundColor: "white"
+    backgroundColor: "white",
+    margin: "5px"
 }
 
-interface propsType {
-    props: string
-}
+
 
 function Signature() {
     const canvasRef = useRef<HTMLCanvasElement>(null)

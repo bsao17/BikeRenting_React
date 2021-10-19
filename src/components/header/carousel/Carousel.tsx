@@ -5,7 +5,7 @@ import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 const Carousel = () => {
     return (
-        <div className={"col-lg-10 col-md-12 col-sm-12 p-3 bg-secondary m-auto"}>
+        <div className={"col-lg-10 col-md-12 col-sm-12 p-3 bg-secondary rounded m-auto"}>
             <OwlCarousel className='owl-theme' loop margin={5} autoplay={true} nav autoWidth={true}>
                 <div className='item'>
                     <img src={"./images/velib.jpg"} alt=""/>

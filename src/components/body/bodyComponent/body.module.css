@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap");
+#fontText {
+  font-family: "Dancing Script", cursive;
+}
+
+#fontTitle {
+  font-family: "Dancing Script", cursive;
+}
+
+#form {
+  background-color: #ECEAE4;
+}
+
+/*# sourceMappingURL=body.module.css.map */
