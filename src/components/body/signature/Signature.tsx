@@ -1,4 +1,4 @@
-import React, {useRef} from 'react';
+import React, {MouseEventHandler, useEffect, useRef} from 'react';
 
 
 const canvasStyle = {
@@ -7,15 +7,26 @@ const canvasStyle = {
     backgroundColor: "white",
     margin: "5px"
 }
-
+interface canvasEvent {
+    event: MouseEventInit
+}
 
 
 function Signature() {
     const canvasRef = useRef<HTMLCanvasElement>(null)
-    const canvasCtx = canvasRef.current?.getContext('2d')
+    const ctx = canvasRef.current?.getContext('2d')
+
+    function screenShow(e: MouseEvent){
+        console.log(e.clientX)
+    }
+
+    useEffect(()=>{
+        //@ts-ignore
+        screenShow(canvasRef)
+    }, [])
 
     return (
-        <canvas ref={canvasRef} style={canvasStyle} >
+        <canvas ref={canvasRef} style={canvasStyle}>
 
         </canvas>
     );
