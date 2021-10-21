@@ -10,7 +10,7 @@ const canvasStyle = {
 
 function Signature() {
     const canvasRef = useRef<HTMLCanvasElement>(null)
-    const ctx = canvasRef.current?.getContext('2d')
+    const ctx:  CanvasRenderingContext2D | null | undefined = canvasRef.current?.getContext('2d')
 
     function screenShow(eventMouse: React.MouseEvent){
         console.log(eventMouse.clientX)
@@ -23,7 +23,7 @@ function Signature() {
         <canvas
             ref={canvasRef}
             style={canvasStyle}
-            onMouseMove={ screenShow }
+            onClick={ screenShow }
         >
 
         </canvas>

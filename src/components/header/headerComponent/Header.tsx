@@ -35,7 +35,7 @@ const Header: FunctionComponent = (props) => {
             axios.get(`${process.env.REACT_APP_URL}`)
                 .then((r) => {
                     setArticleContent(r.data);
-                    console.log({"Node jason database":r.data})
+                    console.log({"JSON database":r.data})
                 })
         }
         , [])
