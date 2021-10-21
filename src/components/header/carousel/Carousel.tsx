@@ -5,6 +5,9 @@ import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 const Carousel = () => {
+    /**
+     * State manager Hook
+     */
     const [bg] = useRecoilState(backgroundState)
     return (
         <div className={bg ? "col-lg-10 col-md-12 col-sm p-3 bg-secondary rounded m-auto" : "col-lg-10 col-md-12 col-sm p-3 bg-secondary rounded m-auto"}>

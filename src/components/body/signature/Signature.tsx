@@ -1,6 +1,8 @@
 import React, {useEffect, useRef} from 'react';
 
-
+/**
+ * canvas css
+ */
 const canvasStyle = {
     width: "auto",
     borderRadius: "5px",
@@ -12,6 +14,10 @@ function Signature() {
     const canvasRef = useRef<HTMLCanvasElement>(null)
     const ctx:  CanvasRenderingContext2D | null | undefined = canvasRef.current?.getContext('2d')
 
+    /**
+     *
+     * @param eventMouse
+     */
     function screenShow(eventMouse: React.MouseEvent){
         console.log(eventMouse.clientX)
     }

@@ -4,12 +4,16 @@ import {useRecoilState} from "recoil";
 import {backgroundState} from "../../../atoms/background";
 import axios from "axios";
 
-/* map size */
+/**
+ * Map Size
+ */
 const containerStyle = {
     width: '100vw',
     height: '90vh'
 };
-/*Container map*/
+/**
+ * Container map
+ */
 const containerMapLight = {
     width: "99%",
     margin: "auto",
@@ -22,28 +26,37 @@ const containerMapDark = {
     backgroundColor: "black",
     borderRadius: "5px"
 }
-/* Google map center */
+/**
+ * Google map center
+ */
 const center = {
     lat: 43.604652,
     lng: 1.444209
 };
 
+/**
+ * Type
+ */
 interface locationMarker {
     lat: number
     lng: number
 }
 
-/*Props Interface*/
+/**
+ * Props Interface
+ */
 interface stationProps {
     updateStation: Function
 }
 
-/*Component Map*/
 function Map({updateStation}: stationProps) {
     const [bicycleStationMarker, setBicycleStationMarker] = useState<locationMarker[]>()
     const [bg] = useRecoilState(backgroundState)
 
-
+    /**
+     *
+     * @constructor Request JCDecaux API
+     */
     function JcdecauxRequest() {
         axios.get(`${process.env.REACT_APP_JCD_URL}`).then(
             (R) => {
@@ -54,6 +67,9 @@ function Map({updateStation}: stationProps) {
         )
     }
 
+    /**
+     * Lifecycle Hook
+     */
     useEffect(JcdecauxRequest, [])
     return (
         <div style={bg ? containerMapDark : containerMapLight}>

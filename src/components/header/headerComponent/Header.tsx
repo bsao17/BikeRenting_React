@@ -29,7 +29,9 @@ const Header: FunctionComponent = (props) => {
     const [articleContent, setArticleContent] = useState([])
     const [toggleWindow, setToggleWindow] = useState<Boolean>(true)
     const [bg] = useRecoilState(backgroundState)
-
+    /**
+     * Request data API in callBack Hook
+     */
     const requestHttp = useCallback(
         function requestDb() {
             axios.get(`${process.env.REACT_APP_URL}`)

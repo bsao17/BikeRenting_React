@@ -11,8 +11,12 @@ const Body: FunctionComponent = () => {
     const [stationAddress, setStationAddress] = useState<string>()
     const [nameStation, setNameStation] = useState<string>()
     const [bicycleAvailable, setBicycleAvailable] = useState<string>()
-
-    /*child HTTP request from API JCDecaux*/
+    /**
+     *
+     * @param A like Address
+     * @param N like Name
+     * @param B like Bicycle
+     */
     const stationProps = (A: string, N: string, B: string): void => {
         setStationAddress(A)
         setNameStation(N)
