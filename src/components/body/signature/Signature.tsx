@@ -7,26 +7,24 @@ const canvasStyle = {
     backgroundColor: "white",
     margin: "5px"
 }
-interface canvasEvent {
-    event: MouseEventInit
-}
-
 
 function Signature() {
     const canvasRef = useRef<HTMLCanvasElement>(null)
     const ctx = canvasRef.current?.getContext('2d')
 
-    function screenShow(e: MouseEvent){
-        console.log(e.clientX)
+    function screenShow(eventMouse: React.MouseEvent){
+        console.log(eventMouse.clientX)
     }
 
-    useEffect(()=>{
-        //@ts-ignore
-        screenShow(canvasRef)
-    }, [])
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
+    useEffect(()=>{screenShow}, [])
 
     return (
-        <canvas ref={canvasRef} style={canvasStyle}>
+        <canvas
+            ref={canvasRef}
+            style={canvasStyle}
+            onMouseMove={ screenShow }
+        >
 
         </canvas>
     );
