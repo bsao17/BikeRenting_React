@@ -1,11 +1,13 @@
 import React from 'react';
-import OwlCarousel from 'react-owl-carousel';
+import OwlCarousel from 'react-owl-carousel';import {useRecoilState} from "recoil";
+import {backgroundState} from "../../../atoms/background";
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 const Carousel = () => {
+    const [bg] = useRecoilState(backgroundState)
     return (
-        <div className={"col-lg-10 col-md-12 col-sm-12 p-3 bg-secondary rounded m-auto"}>
+        <div className={bg ? "col-lg-10 col-md-12 col-sm p-3 bg-secondary rounded m-auto" : "col-lg-10 col-md-12 col-sm p-3 bg-secondary rounded m-auto"}>
             <OwlCarousel className='owl-theme' loop margin={5} autoplay={true} nav autoWidth={true}>
                 <div className='item'>
                     <img src={"./images/velib.jpg"} alt=""/>
